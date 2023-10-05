@@ -7,6 +7,7 @@ export enum RoutePath {
   MacrosWireframe = 'macros-wireframe',
   Macros = 'macros',
   User = 'user',
+  Events = 'events',
   Users = 'users',
   SignOut = 'sign-out',
 }

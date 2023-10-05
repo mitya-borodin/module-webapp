@@ -9,11 +9,13 @@ import {
 
 import { Dashboard } from '../pages/Dashboard';
 import { Devices } from '../pages/Devices';
+import { Events } from '../pages/Events';
 import { Macros } from '../pages/Macros';
 import { MacrosWireframe } from '../pages/MacrosWireframe';
 import { Page404 } from '../pages/Page404';
 import { SignIn } from '../pages/SignIn';
 import { SignOut } from '../pages/SignOut';
+import { User } from '../pages/User';
 import { Users } from '../pages/Users';
 
 import { AuthLayout } from './components/AuthLayout';
@@ -42,6 +44,8 @@ const router = createBrowserRouter(
           <Route path={RoutePath.MacrosWireframe} element={<MacrosWireframe />} />
           <Route path={RoutePath.Macros} element={<Macros />} />
           <Route path={RoutePath.Users} element={<Users />} />
+          <Route path={RoutePath.User} element={<User />} />
+          <Route path={RoutePath.Events} element={<Events />} />
           <Route path={RoutePath.SignOut} element={<SignOut />} />
           <Route path="*" element={<Navigate replace to={RoutePath.Dashboard} />} />
         </Route>

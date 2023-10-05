@@ -27,6 +27,12 @@ const userNavigation = [
   { name: 'Sign out', href: joinPaths(['/', RoutePath.SignOut]) },
 ];
 
+const eventsNavigation = [{ name: 'Events', href: joinPaths(['/', RoutePath.Events]) }];
+
+const getPageName = (href: string) => {
+  return [...navigation, ...userNavigation, ...eventsNavigation].find((item) => item.href === href)?.name ?? 'Unknown';
+};
+
 export const MainLayout = observer(() => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -55,7 +61,7 @@ export const MainLayout = observer(() => {
                   <div className="hidden md:block">
                     <div className="ml-10 flex items-baseline space-x-4">
                       {navigation.map((item) => {
-                        const isCurrent = location.pathname.includes(item.href);
+                        const isCurrent = location.pathname === item.href;
 
                         return (
                           <a
@@ -80,6 +86,7 @@ export const MainLayout = observer(() => {
                     <button
                       type="button"
                       className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                      onClick={() => navigate(RoutePath.Events)}
                     >
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">View notifications</span>
@@ -109,7 +116,8 @@ export const MainLayout = observer(() => {
                             <Menu.Item key={item.name}>
                               {({ active }) => (
                                 <a
-                                  href={item.href}
+                                  href="#"
+                                  onClick={() => navigate(item.href)}
                                   className={classNames(
                                     active ? 'bg-gray-100' : '',
                                     'block px-4 py-2 text-sm text-gray-700',
@@ -143,7 +151,7 @@ export const MainLayout = observer(() => {
             <Disclosure.Panel className="md:hidden">
               <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                 {navigation.map((item) => {
-                  const isCurrent = location.pathname.includes(item.href);
+                  const isCurrent = location.pathname === item.href;
 
                   return (
                     <Disclosure.Button
@@ -185,7 +193,8 @@ export const MainLayout = observer(() => {
                     <Disclosure.Button
                       key={item.name}
                       as="a"
-                      href={item.href}
+                      href="#"
+                      onClick={() => navigate(item.href)}
                       className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                     >
                       {item.name}
@@ -200,7 +209,7 @@ export const MainLayout = observer(() => {
 
       <header className="bg-white shadow">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">{getPageName(location.pathname)}</h1>
         </div>
       </header>
       <main>

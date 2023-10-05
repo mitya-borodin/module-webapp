@@ -103,15 +103,16 @@ export const createHardWareStore = (rootStore: RootStoreInterface) => {
       );
 
       await new Promise((resolve, reject) => {
-        if (!graphQLClient) {
-          reject(Error(ErrorType.UNEXPECTED_BEHAVIOR));
+        runInAction(() => {
+          if (!graphQLClient) {
+            reject(Error(ErrorType.UNEXPECTED_BEHAVIOR));
 
-          return;
-        }
+            return;
+          }
 
-        this.unSubscribeOfDevice = graphQLClient.subscribe(
-          {
-            query: gql`
+          this.unSubscribeOfDevice = graphQLClient.subscribe(
+            {
+              query: gql`
               subscription {
                 device {
                   items ${deviceQueryFragment}
@@ -123,15 +124,16 @@ export const createHardWareStore = (rootStore: RootStoreInterface) => {
                 }
               }
             `,
-          },
-          {
-            next: onNextDevice,
-            error: reject,
-            complete() {
-              resolve(undefined);
             },
-          },
-        );
+            {
+              next: onNextDevice,
+              error: reject,
+              complete() {
+                resolve(undefined);
+              },
+            },
+          );
+        });
       });
 
       const onNextMacros = action('onNextMacros', (event: ExecutionResult<DeviceSubscriptionEvent, unknown>) => {
@@ -143,36 +145,38 @@ export const createHardWareStore = (rootStore: RootStoreInterface) => {
       });
 
       await new Promise((resolve, reject) => {
-        if (!graphQLClient) {
-          reject(Error(ErrorType.UNEXPECTED_BEHAVIOR));
+        runInAction(() => {
+          if (!graphQLClient) {
+            reject(Error(ErrorType.UNEXPECTED_BEHAVIOR));
 
-          return;
-        }
-        this.unSubscribeOfDevice = graphQLClient.subscribe(
-          {
-            query: gql`
-              subscription {
-                macros {
-                  items {
-                    lighting ${lightingMacrosQueryFragment}
-                  }
-                  type
-                  error {
-                    code
-                    message
+            return;
+          }
+          this.unSubscribeOfDevice = graphQLClient.subscribe(
+            {
+              query: gql`
+                subscription {
+                  macros {
+                    items {
+                      lighting ${lightingMacrosQueryFragment}
+                    }
+                    type
+                    error {
+                      code
+                      message
+                    }
                   }
                 }
-              }
-            `,
-          },
-          {
-            next: onNextMacros,
-            error: reject,
-            complete() {
-              resolve(undefined);
+              `,
             },
-          },
-        );
+            {
+              next: onNextMacros,
+              error: reject,
+              complete() {
+                resolve(undefined);
+              },
+            },
+          );
+        });
       });
 
       runInAction(() => {
