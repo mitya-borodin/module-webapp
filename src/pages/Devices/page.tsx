@@ -5,6 +5,8 @@ import { useStore } from '../../store';
 
 import { usePageTitle } from '@/shared/hooks';
 
+import "./page.css";
+
 const Devices = observer(() => {
   usePageTitle('Devices');
 
@@ -33,7 +35,11 @@ const Devices = observer(() => {
     return devices;
   };
 
-  return <div>{renderDevices()}</div>;
+  return (
+    <div className="devisec-page">  
+      <ul className='devisec-list'>{renderDevices().map((device) => <li className='devisec-list__item'>{device}</li>)}</ul>
+    </div>
+  );
 });
 
 export default Devices;

@@ -1,0 +1,31 @@
+.devisec-page{
+    padding-left: 1.5 rem;
+    padding-right: 1.5 rem;
+}
+
+.devisec-list {
+    list-style-type:  none;
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-flow: row;
+    gap: 1.5rem;
+}
+
+.devisec-list__item {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .devisec-list {
+        grid-template-columns: auto auto;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .devisec-list {
+        grid-template-columns: auto auto auto;
+    }
+}
