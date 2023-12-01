@@ -9,6 +9,7 @@ export const createGqlWsClient = (connected: () => void, closed: () => void) => 
     url: `${isHttps ? 'wss' : 'ws'}://${window.location.host}/graphql`,
     keepAlive: 10_000,
     shouldRetry: () => true,
+    retryAttempts: Infinity,
     lazy: true,
     connectionParams: async () => {
       return {
