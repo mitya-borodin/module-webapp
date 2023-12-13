@@ -1,5 +1,5 @@
 {
-  "name": "mett",
+  "name": "hyperion-webapp",
   "private": true,
   "scripts": {
     "dev": "vite --config vite/vite.dev.js",
@@ -7,10 +7,11 @@
     "build": "vite build --config vite/vite.prod.js",
     "preview": "vite preview --config vite/vite.dev.js",
     "tslint": "tsc --noEmit",
-    "eslint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "eslint:check": "eslint --ext .js,.jsx,.ts,.tsx src",
     "eslint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src",
     "stylelint": "stylelint src/**/*.css",
-    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "generate-types": "graphql-codegen"
   },
   "dependencies": {
