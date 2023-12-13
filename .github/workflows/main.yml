@@ -26,7 +26,7 @@ jobs:
         run: 'yarn stylelint'
       - name: 'Check eslint'
         run: 'yarn eslint:check'
-  
+
   test:
     runs-on: ubuntu-latest
     needs: lint

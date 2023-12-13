@@ -7,6 +7,6 @@ type LoadingProps = {
   size?: 'large';
 };
 
-export const Loading = ({size}: LoadingProps) => {
+export const Loading = ({ size }: LoadingProps) => {
   return <Spin size={size || 'large'} indicator={antIcon} />;
 };
