@@ -37,7 +37,14 @@ const Devices = observer(() => {
 
   return (
     <div className="devisec-page">  
-      <ul className='devisec-list'>{renderDevices().map((device) => <li className='devisec-list__item'>{device}</li>)}</ul>
+      <ul className='devisec-list'>{renderDevices().map((device) => <li className='devisec-list__item'>
+        <div>
+        {device}
+        </div>
+        <div>
+           <button type="button">open</button>
+        </div>
+        </li>)}</ul>
     </div>
   );
 });

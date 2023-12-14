@@ -12,9 +12,14 @@
 }
 
 .devisec-list__item {
-    width: 250px;
+    box-sizing: border-box;
+    border: 0 solid #e5e7eb;
+    grid-column: span 1 / span 1;
     height: 250px;
     overflow: hidden;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
 }
 
 @media (min-width: 640px) {
