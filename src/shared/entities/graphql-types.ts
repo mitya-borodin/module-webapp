@@ -7,12 +7,12 @@ export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> =
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
-  String: { input: string; output: string; }
-  Boolean: { input: boolean; output: boolean; }
-  Int: { input: number; output: number; }
-  Float: { input: number; output: number; }
-  Upload: { input: any; output: any; }
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
+  Upload: { input: any; output: any };
 };
 
 export type ActivateTwoFaOutput = {
@@ -57,7 +57,7 @@ export enum ControlType {
   Text = 'TEXT',
   Unspecified = 'UNSPECIFIED',
   Value = 'VALUE',
-  Voltage = 'VOLTAGE'
+  Voltage = 'VOLTAGE',
 }
 
 export type CreateUserInput = {
@@ -136,7 +136,7 @@ export enum LightingLevel {
   Accident = 'ACCIDENT',
   Hight = 'HIGHT',
   Low = 'LOW',
-  Middle = 'MIDDLE'
+  Middle = 'MIDDLE',
 }
 
 export type LightingMacros = {
@@ -264,7 +264,7 @@ export type MacrosSubscriptionEvent = {
 };
 
 export enum MacrosType {
-  Lighting = 'LIGHTING'
+  Lighting = 'LIGHTING',
 }
 
 export type MacrosWireframe = {
@@ -324,71 +324,57 @@ export type Mutation = {
   verifyTwoFa?: Maybe<TwoFaOtpOutput>;
 };
 
-
 export type MutationConfirmTwoFaArgs = {
   input: ConfirmTwoFaInput;
 };
-
 
 export type MutationCreateUserArgs = {
   input: CreateUserInput;
 };
 
-
 export type MutationDeactivateTwoFaArgs = {
   input: DeactivateTwoFaInput;
 };
-
 
 export type MutationDeleteUserArgs = {
   input: DeleteUserInput;
 };
 
-
 export type MutationMarkupControlArgs = {
   input: MarkupControl;
 };
-
 
 export type MutationMarkupDeviceArgs = {
   input: MarkupDevice;
 };
 
-
 export type MutationRemoveMacrosArgs = {
   input: RemoveMacrosInput;
 };
-
 
 export type MutationSetControlValueArgs = {
   input: SetControlValue;
 };
 
-
 export type MutationSetPasswordArgs = {
   input: SetPasswordInput;
 };
-
 
 export type MutationSetRoleArgs = {
   input: SetRoleInput;
 };
 
-
 export type MutationSetupMacrosArgs = {
   input: MacrosSetup;
 };
-
 
 export type MutationSignInArgs = {
   input: SignInInput;
 };
 
-
 export type MutationUpdateMacrosArgs = {
   input: MacrosSetup;
 };
-
 
 export type MutationVerifyTwoFaArgs = {
   input: VerifyTwoFaInput;
@@ -413,11 +399,9 @@ export type Query = {
   getUsers?: Maybe<GetUsersOutput>;
 };
 
-
 export type QueryGetUserArgs = {
   input: GetUserInput;
 };
-
 
 export type QueryGetUsersArgs = {
   input: GetUsersInput;
@@ -471,14 +455,14 @@ export enum SubscriptionDeviceType {
   Appeared = 'APPEARED',
   ConnectionEstablished = 'CONNECTION_ESTABLISHED',
   MarkedUp = 'MARKED_UP',
-  ValueIsSet = 'VALUE_IS_SET'
+  ValueIsSet = 'VALUE_IS_SET',
 }
 
 export enum SubscriptionMacrosType {
   OutputAppeared = 'OUTPUT_APPEARED',
   Remove = 'REMOVE',
   Setup = 'SETUP',
-  Update = 'UPDATE'
+  Update = 'UPDATE',
 }
 
 export type TitleInput = {
@@ -512,12 +496,12 @@ export type UserOutput = {
 export enum UserRole {
   Admin = 'ADMIN',
   Operator = 'OPERATOR',
-  Viewer = 'VIEWER'
+  Viewer = 'VIEWER',
 }
 
 export enum UserStatus {
   Active = 'ACTIVE',
-  Deleted = 'DELETED'
+  Deleted = 'DELETED',
 }
 
 export type VerifyTwoFaInput = {

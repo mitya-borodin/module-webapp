@@ -5,7 +5,7 @@ import { useStore } from '../../store';
 
 import { usePageTitle } from '@/shared/hooks';
 
-import "./page.css";
+import './page.css';
 
 const Devices = observer(() => {
   usePageTitle('Devices');
@@ -36,15 +36,17 @@ const Devices = observer(() => {
   };
 
   return (
-    <div className="devisec-page">  
-      <ul className='devisec-list'>{renderDevices().map((device) => <li className='devisec-list__item'>
-        <div>
-        {device}
-        </div>
-        <div>
-           <button type="button">open</button>
-        </div>
-        </li>)}</ul>
+    <div className="devisec-page">
+      <ul className="devisec-list">
+        {renderDevices().map((device) => (
+          <li className="devisec-list__item">
+            <div>{device}</div>
+            <div>
+              <button type="button">open</button>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 });

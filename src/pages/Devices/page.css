@@ -1,36 +1,35 @@
-.devisec-page{
-    padding-left: 1.5 rem;
-    padding-right: 1.5 rem;
+.devisec-page {
+  padding-left: 1.5 rem;
+  padding-right: 1.5 rem;
 }
 
 .devisec-list {
-    list-style-type:  none;
-    display: grid;
-    grid-template-columns: auto;
-    grid-auto-flow: row;
-    gap: 1.5rem;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: auto;
+  grid-auto-flow: row;
+  gap: 1.5rem;
 }
 
 .devisec-list__item {
-    box-sizing: border-box;
-    border: 0 solid #e5e7eb;
-    grid-column: span 1 / span 1;
-    height: 250px;
-    overflow: hidden;
-    background-color: white;
-    border-radius: 0.5rem;
-    padding: 1.5rem;
+  box-sizing: border-box;
+  border: 0 solid #e5e7eb;
+  grid-column: span 1 / span 1;
+  height: 250px;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
 }
 
 @media (min-width: 640px) {
-    .devisec-list {
-        grid-template-columns: auto auto;
-    }
+  .devisec-list {
+    grid-template-columns: auto auto;
+  }
 }
 
-
 @media (min-width: 1024px) {
-    .devisec-list {
-        grid-template-columns: auto auto auto;
-    }
+  .devisec-list {
+    grid-template-columns: auto auto auto;
+  }
 }
