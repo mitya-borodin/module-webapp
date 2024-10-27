@@ -1,3 +1,3 @@
-# Mett
+# Module webapp
 
-This is webapp for <https://github.com/mitya-borodin/hyperion>
+This is webapp for <https://github.com/mitya-borodin/module>
